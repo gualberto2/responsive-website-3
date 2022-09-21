@@ -42,15 +42,83 @@ img {
     text-align: center;
 }
 
-header,
 section{
     padding: 3rem 0;
 }
 
+header {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0 2%;
+    grid-template-areas: 
+        "title buttons" ;
+}
+
+.nav-title {
+    font-size: 2.6rem;
+    font-weight: 600;
+    grid-area: title; 
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-self: center; 
+    align-items: center;
+    align-content: center;
+    grid-area: title;
+    margin-left: 4rem;
+}
+
+.nav-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-buttons {
+    margin-right: 2rem;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-self: center; 
+    align-self: center;   
+    grid-area: buttons;
+}
+
+.nav-buttons ul {
+    list-style-type: none;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    color: black;
+}
 @media (min-width: 40em) {
-    header,
     section {
         padding: 7em 0; 
+    }
+}
+
+@media (max-width: 40em) {
+    header {
+        display:flex;
+        flex-direction: column;
+    }
+    .nav-title {
+        margin: 0;
+    }
+    .nav-buttons {
+        margin: 0;
+    }
+    .nav-buttons ul {
+        padding: 0;
+    }
+    header a {
+        text-align: center;
     }
 }
 
@@ -61,7 +129,7 @@ section{
 
 .split {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }   
 
 @media (min-width: 40em) {
@@ -91,4 +159,35 @@ section{
 .bg-color4 { 
     color: var(--clr-neutral-100);
     background-color: var(--clr-neutral-900)
+}
+
+/* nav bar animation */
+.linkani {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+}
+.linkani::before,
+.linkani::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transition: transform .25s;
+}
+.linkani::before {
+    top: -3px;
+    transform-origin: left;
+}
+.linkani::after {
+    bottom: -3px;
+    transform-origin: right;
+}
+.linkani:hover::before,
+.linkani:hover::after {
+    transform: scaleX(1);
 }
