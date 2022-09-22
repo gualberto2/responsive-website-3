@@ -144,21 +144,48 @@ header {
     .split > * + * {
         margin-left: 2em;
     }
+    .bg-color4 .split {
+        flex-direction: row-reverse;
+    }
+
+    .bg-color4 .split > * {
+        margin-left: 0em;
+        margin-right: 2em;
+    }
+}
+
+@media (max-width: 40em) {
+    .split {
+        flex-direction: column;
+    }
+
 }
 
 .container--narrow {
     max-width: 34rem;
 }
 .bg-color1 { 
-    background-color: var(--clr-primary-200)
+    background-image: url(../pics/placeholder2.jpeg);
+    background-size: cover;
+    filter: grayscale(45%);
 }
+.bg-1-text {
+    color:white; 
+    text-shadow: 0 0 5px
+}
+
 .bg-color3 {
     color: var(--clr-neutral-100);
-    background-color: var(--clr-primary-400)
+    background-color: rgb(83, 78, 188)
 }
+
+.bg-color3 img {
+    box-shadow: #222c2a;
+}
+
 .bg-color4 { 
     color: var(--clr-neutral-100);
-    background-color: var(--clr-neutral-900)
+    background-color: rgb(158, 225, 215)
 }
 
 /* nav bar animation */
